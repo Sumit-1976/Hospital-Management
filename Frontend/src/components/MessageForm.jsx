@@ -10,28 +10,30 @@ const MessageForm = () => {
   const [message, setMessage] = useState("");
   const handleMessage = async(e) => {
     e.preventDefault();
-    console.log('hello');
-    if (!firstName || !lastName || !email || !phone || !message){
-      toast.error("Please enter all details");
-    }
+    /*if (!firstName || !lastName || !email || !phone || !message) {
+        toast.error("Please enter all details");
+        return;
+    }*/
     try {
-      await axios.post("http://localhost:4000/api/v1/message/send", {firstName, lastName, email, phone, message}, {withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((res)=>{
-        console.log(res);
+        const res = await axios.post("http://localhost:4000/api/v1/message/send", {
+            firstName, lastName, email, phone, message
+        }, {
+            withCredentials: true,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
         toast.success(res.data.message);
         setFirstName("");
         setLastName("");
         setEmail("");
         setPhone("");
         setMessage("");
-      });
     } catch (error) {
-      toast.error(error.response.data.message);
+        toast.error(error.response.data.message);
     }
-  };
+};
+
   return (
     <div className='container form-component message-form'>
       <h2>Send Us A Message</h2>
