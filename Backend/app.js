@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Load environment variables at the top
+dotenv.config(); 
 
 import express from "express";
 import cors from "cors";
@@ -12,7 +12,6 @@ import userRouter from "./router/userRouter.js";
 import { v2 as cloudinary } from "cloudinary";
 import appointmentRouter from "./router/appointmentRouter.js";
 
-// Cloudinary configuration
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -22,10 +21,18 @@ cloudinary.config({
 
 const app = express();
 
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+
 app.use(cors({
-    origin: 'http://localhost:5173/',
-    credentials: true
-  }));
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true); 
+    } else {
+      callback(new Error('Not allowed by CORS')); 
+    }
+  },
+  credentials: true 
+}));
 
 app.use(cookieParser());
 app.use(express.json());
