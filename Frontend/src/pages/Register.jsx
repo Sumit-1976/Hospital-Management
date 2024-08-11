@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        `${import.meta.env.VITE_SERVER_URL}/api/v1/user/patient/register`,
         { firstName, lastName, email, phone, aadhar, dob, gender, password, role: "Patient" },
         {
           withCredentials: true,

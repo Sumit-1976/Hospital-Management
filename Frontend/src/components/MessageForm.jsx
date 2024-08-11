@@ -15,7 +15,7 @@ const MessageForm = () => {
         return;
     }*/
     try {
-        const res = await axios.post("http://localhost:4000/api/v1/message/send", {
+        const res = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/v1/message/send`, {
             firstName, lastName, email, phone, message
         }, {
             withCredentials: true,
