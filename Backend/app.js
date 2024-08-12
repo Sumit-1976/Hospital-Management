@@ -20,6 +20,7 @@ cloudinary.config({
 });
 
 const app = express();
+app.use(cookieParser());
 
 const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'https://hospital-management-olive-kappa.vercel.app',];
 
@@ -34,7 +35,7 @@ app.use(cors({
   credentials: true 
 }));
 
-app.use(cookieParser());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
