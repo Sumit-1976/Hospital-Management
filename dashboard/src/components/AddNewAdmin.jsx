@@ -23,7 +23,7 @@ const AddNewAdmin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/admin/addnew",
+        `${import.meta.env.VITE_SERVER_URL}/api/v1/user/admin/addnew`,
         { firstName, lastName, email, phone, aadhar, dob, gender, password, },
         {
           withCredentials: true,

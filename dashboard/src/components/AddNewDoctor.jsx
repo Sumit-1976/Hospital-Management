@@ -61,7 +61,7 @@ const AddNewDoctor = () => {
       formData.append("docAvatarPreview", docAvatarPreview);
 
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/doctor/addnew",
+        `${import.meta.env.VITE_SERVER_URL}/api/v1/user/doctor/addnew`,
         formData,
         {
           withCredentials: true,
