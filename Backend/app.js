@@ -22,7 +22,7 @@ cloudinary.config({
 const app = express();
 app.use(cookieParser());
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'https://hospital-management-olive-kappa.vercel.app', 'https://hospital-management-admin.vercel.app',];
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'https://aayuhub.vercel.app', 'https://aayuhub-admin.vercel.app',];
 
 app.use(cors({
   origin: function(origin, callback) {
