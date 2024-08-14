@@ -6,7 +6,7 @@ const Hero = ({title, imageUrl}) => {
       <div className="banner">
         <h1>{title}</h1>
         <p>
-          AayuHub is a state-of-art facility dedicated to 
+          ZeeCare is a state-of-art facility dedicated to 
           providing comprehensive healthcare services with compassion and 
           expertise. Our team of skilled professionals is comitted to 
           delivering personalized care tailored to each patient's needs. At
